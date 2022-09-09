@@ -35,6 +35,7 @@ jobs:
 
       - name: Copy the script
         run: |
+          pwd
           cp repo2/script.sh $HOME/
 
       - name: Login to DockerHub
