@@ -1,5 +1,7 @@
 FROM ubuntu:latest
 
+USER root
+
 WORKDIR /root
 
 ADD ./script.sh /root/script.sh
