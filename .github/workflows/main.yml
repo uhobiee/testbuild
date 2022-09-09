@@ -56,5 +56,5 @@ jobs:
           push: true
           tags: uhobiee/testbuild:latest
           build-args: | 
-             "hello="yes hello"
-             "bye"="bye bye"
+             hello=yes
+             bye=bye
