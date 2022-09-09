@@ -52,5 +52,6 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
+          context: .
           push: true
           tags: uhobiee/testbuild:latest
