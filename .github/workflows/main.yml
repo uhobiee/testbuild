@@ -23,8 +23,8 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: checkout
         uses: actions/checkout@v3
-
-      - name: name: Set up QEMU
+        
+      - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
 
       - name: Login to DockerHub
