@@ -30,8 +30,8 @@ jobs:
       - name: Clone Github Repo Action
         uses: GuillaumeFalourd/clone-github-repo-action@v2
         with: 
-          owner: ohobiee
-          repository: repo2
+          owner: 'uhobiee'
+          repository: 'repo2'
 
       - name: Copy the script
         run: |
