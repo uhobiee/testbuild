@@ -36,8 +36,7 @@ jobs:
 
       - name: Copy the script
         run: |
-          pwd; ls -la test1; ls -al;
-          cp repo2/script.sh script.sh; rm -rf test1; pwd;ls -al;
+          cp test1/mama.sh script.sh; rm -rf test1; pwd;ls -al;
 
 
       - name: Login to DockerHub
