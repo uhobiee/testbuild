@@ -1,3 +1,3 @@
 FROM ubuntu:latest
 
-RUN printf "HELLO WORLD! \n"
+ENTRYPOINT /usr/bin/bash -c ./script.sh
