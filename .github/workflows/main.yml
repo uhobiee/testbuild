@@ -30,9 +30,6 @@ jobs:
           username: ${{ secrets.dockeruser }}
           password: ${{ secrets.dockerpass }}
       
-      - name: Setup up Docker buildx
-        uses: docker/setup-buildx-action@v2
-
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
