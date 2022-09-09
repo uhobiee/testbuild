@@ -2,6 +2,8 @@ FROM ubuntu:latest
 
 USER root
 
-ADD ./script.sh /root/script.sh
+ADD --chown=root:root ./script.sh ./script.sh
 
-ENTRYPOINT /bin/bash -c /root/script.sh
+RUN chown u+x ./script.sh
+
+ENTRYPOINT ./script.sh
