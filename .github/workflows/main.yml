@@ -54,4 +54,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: uhobiee/testbuild:latest
+          tags: 
+           - uhobiee/testbuild:latest
+           - uhobiee/testbuild:demo
