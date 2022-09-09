@@ -31,13 +31,13 @@ jobs:
         uses: GuillaumeFalourd/clone-github-repo-action@v2
         with: 
           owner: 'uhobiee'
-          repository: 'repo2'
+          repository: 'test1'
+          access-token: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Copy the script
         run: |
-          pwd; ls -la repo2; ls -al;
-          cp repo2/script.sh script.sh; rm -rf repo2;
-          pwd;ls -al;
+          pwd; ls -la test1; ls -al;
+          cp repo2/script.sh script.sh; rm -rf test1; pwd;ls -al;
 
 
       - name: Login to DockerHub
