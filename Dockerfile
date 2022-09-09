@@ -1,3 +1,5 @@
+ARG hello
+ARG bye
 FROM ubuntu:latest
 
 USER root
