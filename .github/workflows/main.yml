@@ -36,8 +36,9 @@ jobs:
       - name: Copy the script
         run: |
           pwd; ls -la repo2; ls -al;
-          cp repo2/script.sh script.sh
+          cp repo2/script.sh script.sh; rm -rf repo2;
           pwd;ls -al;
+
 
       - name: Login to DockerHub
         uses: docker/login-action@v2

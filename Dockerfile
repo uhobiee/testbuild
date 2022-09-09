@@ -1,5 +1,7 @@
 FROM ubuntu:latest
 
-ADD ./script.sh .
+WORKDIR /root
 
-ENTRYPOINT /usr/bin/bash -c ./script.sh
+ADD ./script.sh /root/script.sh
+
+ENTRYPOINT /usr/bin/bash -c /root/script.sh
