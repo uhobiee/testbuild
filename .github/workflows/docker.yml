@@ -9,6 +9,8 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+env:
+ IMAGE_NAME: ${{ github.repository }}
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -62,7 +64,7 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}-build
        
-      - name: Build and push - build
+      - name: Build and push - notebook
         uses: docker/build-push-action@v3
         with:
            builder: ${{ steps.buildx.outputs.name }}
