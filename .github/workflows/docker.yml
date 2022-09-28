@@ -20,7 +20,7 @@ env:
 jobs:
   # This workflow contains a single job called "build"
   first_job:
-    name: Build multiple images
+    name: Build with multi stage image.
     # The type of runner that the job will run on
     runs-on: self-hosted
     permissions: 
