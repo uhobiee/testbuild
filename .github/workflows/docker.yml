@@ -58,13 +58,12 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}-build
        
-       - name: Build and push - build
-         uses: docker/build-push-action@v3
-         with:
+      - name: Build and push - build
+        uses: docker/build-push-action@v3
+        with:
            builder: ${{ steps.buildx.outputs.name }}
            context: .
            file: ./Dockerfile
            target: "notebook"
            push: ${{ github.event_name != 'pull_request' }}
            tags: ${{ steps.meta.outputs.tags }}-notebook
-
