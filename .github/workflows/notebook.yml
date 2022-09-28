@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: build multiple images
+name: Build Notebook Image
 
 # Controls when the workflow will run
 on:
@@ -20,7 +20,7 @@ env:
 jobs:
   # This workflow contains a single job called "build"
   first_job:
-    name: Build with multi stage image.
+    name: Notebook1
     # The type of runner that the job will run on
     runs-on: self-hosted
     permissions: 
@@ -56,12 +56,12 @@ jobs:
         with:
           images: uhobiee/testbuild
       
-      - name: Build and push - build
+      - name: Build and push - notebook
         uses: docker/build-push-action@v3
         with:
-          builder: ${{ steps.buildx.outputs.name }}
-          context: .
-          file: ./Dockerfile
-          target: "build"
-          push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}-build
+           builder: ${{ steps.buildx.outputs.name }}
+           context: .
+           file: ./Dockerfile
+           target: "notebook"
+           push: ${{ github.event_name != 'pull_request' }}
+           tags: ${{ steps.meta.outputs.tags }}-notebook
