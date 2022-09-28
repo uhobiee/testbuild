@@ -54,7 +54,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: ${{ env.IMAGE_NAME }}
+          images: uhobiee/testbuild
       
       - name: Build and push - build
         uses: docker/build-push-action@v3
