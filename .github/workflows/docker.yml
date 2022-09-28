@@ -7,6 +7,11 @@ on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
     branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  IMAGE_NAME: ${{ github.repository }}
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -18,16 +23,19 @@ jobs:
     name: Build with multi stage image.
     # The type of runner that the job will run on
     runs-on: self-hosted
+    permissions: 
+      contents: read
+      packages: write
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@master
-        with:
+        with: 
           platforms: all
 
       - name: Set up Docker Buildx
@@ -44,9 +52,9 @@ jobs:
 
       - name: Extract Docker metadata
         id: meta
-        uses: docker/metadata-action@v3
+        uses: docker/metadata-action@v4
         with:
-          images: ${{ env.IMAGE_NAME }}
+          images: uhobiee/testbuild
       
       - name: Build and push - build
         uses: docker/build-push-action@v3
@@ -58,7 +66,7 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}-build
        
-      - name: Build and push - build
+      - name: Build and push - notebook
         uses: docker/build-push-action@v3
         with:
            builder: ${{ steps.buildx.outputs.name }}
