@@ -2,12 +2,14 @@ FROM ubuntu:latest as build
 
 USER root
 
-ADD --chown=root:root ./script.sh ./script.sh
+WORKDIR /root
 
-RUN /usr/bin/chmod u+x ./script.sh
+ADD ./script.sh /root/script.sh
 
-ENTRYPOINT ./script.sh
+RUN /usr/bin/chmod u+x /root/script.sh
+
+CMD ["/root/script.sh"]
 
 FROM build as notebook
 
-CMD ['printf"Coming from notebook \n"']
+CMD ["/bin/sh","-c", "/usr/bin/printf 'Coming from notebook \n'"]
