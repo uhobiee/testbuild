@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: build-multiple-images
+name: build multiple images
 
 # Controls when the workflow will run
 on:
@@ -9,8 +9,9 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+
 env:
- IMAGE_NAME: ${{ github.repository }}
+  IMAGE_NAME: ${{ github.repository }}
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -18,7 +19,8 @@ env:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  first_job:
+    name: Build multiple images
     # The type of runner that the job will run on
     runs-on: self-hosted
     permissions: 
@@ -50,7 +52,7 @@ jobs:
 
       - name: Extract Docker metadata
         id: meta
-        uses: docker/metadata-action@v3
+        uses: docker/metadata-action@v4
         with:
           images: ${{ env.IMAGE_NAME }}
       
